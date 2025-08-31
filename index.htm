@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en" data-lt-installed="true">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Proposal &amp; Bid Documents — Secure Access</title>
+  <meta name="description"
+    content="Select, confirm, and receive your proposal &amp; bidding documents via secure email link.">
+  <link rel="icon" href="https://i.postimg.cc/tC7ccSHR/favicon-3-3.png" type="image/x-icon">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          boxShadow: {
+            soft: '0 10px 30px -10px rgba(0,0,0,0.15)'
+          },
+          colors: {
+            brand: {
+              600: '#003366'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html {
+      scroll-behavior: smooth
+    }
+
+    .bg-soft {
+      background:
+        radial-gradient(1000px 500px at 10% -10%, rgba(0, 51, 102, .08), transparent),
+        radial-gradient(1000px 500px at 90% -10%, rgba(0, 51, 102, .06), transparent)
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        background: #0b1120;
+        color: #e5e7eb
+      }
+
+      .card {
+        background: rgba(255, 255, 255, .04);
+        border-color: rgba(255, 255, 255, .08)
+      }
+    }
+
+    /* Amplify-specific optimizations */
+    .hidden {
+      display: none;
+    }
+
+    .flex {
+      display: flex;
+    }
+
+    /* Improved focus styles for accessibility */
+    button:focus-visible,
+    input:focus-visible {
+      outline: 2px solid #003366;
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen bg-white text-slate-800">
+  <!-- Header -->
+  <header class="text-white bg-brand-600">
+    <div class="max-w-4xl px-4 py-10 mx-auto text-center">
+      <h1 class="text-2xl font-semibold tracking-tight md:text-3xl">Proposal &amp; Bidding Documents</h1>
+      <p class="mt-2 text-white/80">Select files below. You'll get a secure download link after confirming your email.
+      </p>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="bg-soft">
+    <div class="max-w-4xl px-4 mx-auto">
+      <!-- Card -->
+      <section class="p-6 -mt-8 bg-white border card md:-mt-10 border-slate-200 rounded-2xl shadow-soft md:p-8">
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <h2 class="text-xl font-semibold">Available Files</h2>
+            <p class="mt-1 text-sm text-slate-500">Choose what you need. You can select all, too.</p>
+          </div>
+          <button id="btnSelectAll" type="button"
+            class="inline-flex items-center gap-2 px-3 py-2 text-sm border rounded-xl border-slate-300 hover:bg-slate-50"
+            aria-label="Select all documents">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2">
+              <path d="M3 6h18M3 12h18M3 18h18"></path>
+            </svg>
+            <span>Select All</span>
+          </button>
+        </div>
+
+        <ul id="docList" class="mt-6 divide-y divide-slate-200">
+          <!-- Each row -->
+          <li class="flex items-center justify-between gap-4 py-3">
+            <label class="flex items-center flex-1 gap-3">
+              <input type="checkbox" class="w-4 h-4 rounded border-slate-300" data-file="RFP Overview Document.pdf"
+                checked="checked">
+              <span class="font-medium">RFP Overview Document</span>
+            </label>
+            <span class="text-xs text-slate-500">Jul 30, 2025</span>
+          </li>
+          <li class="flex items-center justify-between gap-4 py-3">
+            <label class="flex items-center flex-1 gap-3">
+              <input type="checkbox" class="w-4 h-4 rounded border-slate-300"
+                data-file="Scope of Work &amp; Specifications.pdf" checked="checked">
+              <span class="font-medium">Scope of Work &amp; Specifications</span>
+            </label>
+            <span class="text-xs text-slate-500">Jul 30, 2025</span>
+          </li>
+          <li class="flex items-center justify-between gap-4 py-3">
+            <label class="flex items-center flex-1 gap-3">
+              <input type="checkbox" class="w-4 h-4 rounded border-slate-300" data-file="Bid Submission Guidelines.pdf">
+              <span class="font-medium">Bid Submission Guidelines</span>
+            </label>
+            <span class="text-xs text-slate-500">Jul 30, 2025</span>
+          </li>
+          <li class="flex items-center justify-between gap-4 py-3">
+            <label class="flex items-center flex-1 gap-3">
+              <input type="checkbox" class="w-4 h-4 rounded border-slate-300" data-file="Compliance Requirements.pdf"
+                checked="checked">
+              <span class="font-medium">Compliance Requirements</span>
+            </label>
+            <span class="text-xs text-slate-500">Jul 30, 2025</span>
+          </li>
+          <li class="flex items-center justify-between gap-4 py-3">
+            <label class="flex items-center flex-1 gap-3">
+              <input type="checkbox" class="w-4 h-4 rounded border-slate-300"
+                data-file="Contract Terms &amp; Conditions.pdf">
+              <span class="font-medium">Contract Terms &amp; Conditions</span>
+            </label>
+            <span class="text-xs text-slate-500">Jul 30, 2025</span>
+          </li>
+        </ul>
+
+        <!-- Actions -->
+        <div class="flex flex-col items-stretch gap-3 mt-6 sm:flex-row sm:items-center">
+          <button id="btnDownload" type="button"
+            class="w-full sm:w-auto inline-flex justify-center items-center gap-2 rounded-xl bg-brand-600 text-white px-5 py-3 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-[#0a4177]"
+            aria-label="Get selected documents" disabled>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2">
+              <path d="M12 3v12m0 0-4-4m4 4 4-4M4 21h16"></path>
+            </svg>
+            <span>Get Selected</span>
+            <span id="countBadge"
+              class="ml-1 inline-flex items-center justify-center rounded-md bg-white/20 px-2 py-0.5 text-xs">3</span>
+          </button>
+          <p class="text-xs text-slate-500">We'll email a secure link. No spam, ever.</p>
+        </div>
+      </section>
+
+      <!-- Modal -->
+      <div id="emailModal" class="fixed inset-0 items-center justify-center hidden p-4 bg-black/50" aria-hidden="true"
+        role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="w-full max-w-md p-6 bg-white border rounded-2xl border-slate-200 shadow-soft">
+          <div class="flex items-start justify-between">
+            <h3 id="modalTitle" class="text-lg font-medium">Confirm your email</h3>
+            <button id="modalClose" class="text-slate-500 hover:text-slate-700" aria-label="Close">✕</button>
+          </div>
+          <p class="mt-1 text-sm text-slate-600">We'll send a secure link to access your selected files.</p>
+          <form id="emailForm" method="POST" class="mt-4 space-y-3">
+            <!-- Honeypot field (hidden) -->
+            <input type="text" name="company" class="hidden" tabindex="-1" autocomplete="off">
+            <!-- Selected files JSON -->
+            <input type="hidden" name="selection" id="selectionField"
+              value='["RFP Overview Document.pdf","Scope of Work &amp; Specifications.pdf","Compliance Requirements.pdf"]'>
+
+            <label for="email" class="block text-sm text-slate-700">Email address</label>
+            <input type="email" name="email" id="email" required placeholder="you@example.com"
+              class="w-full px-3 py-2 border rounded-xl border-slate-300 focus:outline-none focus:ring-2 focus:ring-slate-200">
+
+            <button type="submit"
+              class="w-full rounded-xl bg-brand-600 text-white py-3 hover:bg-[#0a4177]">Continue</button>
+            <p class="text-[11px] text-slate-500">By continuing, you agree to our terms and privacy policy.</p>
+          </form>
+        </div>
+      </div>
+
+      <footer class="py-10 text-xs text-center text-slate-500">© 2025 Confidential — For Intended Recipient Only
+      </footer>
+    </div>
+  </main>
+
+  <script>
+    // Initialize variables
+    const checkboxes = Array.from(document.querySelectorAll('#docList input[type="checkbox"]'));
+    const btnDownload = document.getElementById('btnDownload');
+    const btnSelectAll = document.getElementById('btnSelectAll');
+    const countBadge = document.getElementById('countBadge');
+    const emailModal = document.getElementById('emailModal');
+    const modalClose = document.getElementById('modalClose');
+    const selectionField = document.getElementById('selectionField');
+    const emailForm = document.getElementById('emailForm');
+    const emailInput = document.getElementById('email');
+
+    // Function to update UI state based on selections
+    function updateState() {
+      const selected = checkboxes.filter(cb => cb.checked);
+      countBadge.textContent = selected.length;
+      btnDownload.disabled = selected.length === 0;
+    }
+
+    // Add event listeners to checkboxes
+    checkboxes.forEach(cb => cb.addEventListener('change', updateState));
+
+    // Select all functionality
+    btnSelectAll.addEventListener('click', () => {
+      const allChecked = checkboxes.every(cb => cb.checked);
+      checkboxes.forEach(cb => cb.checked = !allChecked);
+      updateState();
+    });
+
+    // Download button functionality
+    btnDownload.addEventListener('click', () => {
+      // Prepare selection into hidden field before opening modal
+      const files = checkboxes.filter(cb => cb.checked).map(cb => cb.getAttribute('data-file'));
+      selectionField.value = JSON.stringify(files);
+      emailModal.classList.remove('hidden');
+      emailModal.classList.add('flex');
+      emailModal.setAttribute('aria-hidden', 'false');
+
+      // Focus on email input after a short delay
+      setTimeout(() => emailInput?.focus(), 50);
+    });
+
+    // Modal close functionality
+    modalClose.addEventListener('click', () => {
+      closeModal();
+    });
+
+    // Close modal when clicking outside
+    window.addEventListener('click', (e) => {
+      if (e.target === emailModal) {
+        closeModal();
+      }
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !emailModal.classList.contains('hidden')) {
+        closeModal();
+      }
+    });
+
+    // Function to close modal
+    function closeModal() {
+      emailModal.classList.add('hidden');
+      emailModal.classList.remove('flex');
+      emailModal.setAttribute('aria-hidden', 'true');
+    }
+
+    // Basic client-side email validation
+    emailForm.addEventListener('submit', (e) => {
+      const email = emailInput.value.trim();
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!emailPattern.test(email)) {
+        e.preventDefault();
+        alert('Please enter a valid email address.');
+        emailInput.focus();
+      }
+    });
+
+    // Initialize the UI state
+    updateState();
+  </script>
+</body>
+
+</html>
